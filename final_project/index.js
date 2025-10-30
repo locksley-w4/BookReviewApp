@@ -23,40 +23,6 @@ app.use("/customer/auth/*", async function auth(req, res, next) {
         return res.status(401).json({ message: "User unauthenticated, please login" });
     }
 });
-// app.use("/customer/auth/login", function auth(req, res, next) {
-//     try {
-//         const { username, password } = req.body;
-//         const success = String(users[username]?.password) === String(password);
-//         if (success) {                      // hardcoding secret for simpicity
-//             req.session.token = jwt.sign({ username }, "token_secret", { expiresIn: 60 * 60 });
-//             req.session.user = { username };
-//             return res.status(200).json({ message: "Logged in successfully" })
-//         }
-//         else {
-//             return res.status(401).json({ message: "Incorrect credentials, try again" });
-//         }
-//     } catch (err) {
-//         return res.status(401).json({ message: "Error logging in, try later" });
-//     }
-
-// });
-// app.use("/customer/auth/register", function auth(req, res, next) {
-//     try {
-//         const { username, password } = req.body;
-//         const isAvailable = !users[username];
-//         if (isAvailable) {                      // hardcoding secret for simpicity
-//             req.session.token = jwt.sign({ username }, "token_secret", { expiresIn: 60 * 60 });
-//             req.session.user = { username };
-//             users[username] = { password };
-//             return res.status(200).json({ message: "Logged in successfully" })
-//         }
-//         else {
-//             return res.status(401).json({ message: "Username is taken, choose another" });
-//         }
-//     } catch (err) {
-//         return res.status(401).json({ message: "Error signing up, try later" });
-//     }
-// });
 
 const PORT = 5000;
 
