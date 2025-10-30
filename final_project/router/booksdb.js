@@ -2,7 +2,7 @@ const books = {
     "1": {
         "author": "Chinua Achebe",
         "title": "Things Fall Apart",
-        "reviews": {}
+        "reviews": { "1": { "message": "test review", "authorUsername": "good_person123" } }
     },
     "2": {
         "author": "Hans Christian Andersen",
@@ -51,4 +51,4 @@ const books = {
     }
 }
 
-module.exports(books);
+module.exports = books;

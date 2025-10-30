@@ -9,13 +9,13 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/customer", session({ secret: "fingerprint_customer", resave: true, saveUninitialized: true })) // Hardcoding secret for simplicity
+app.use(session({ secret: "fingerprint_customer", resave: true, saveUninitialized: true })) // Hardcoding secret for simplicity
 app.use("/customer/auth/*", async function auth(req, res, next) {
     try {
         const {user, token} = req.session;
         jwt.verify(token, "token_secret", (err, decoded) => {
             if (err) {
-                return return res.status(401).json({ message: "Token error, try again" });
+                return res.status(401).json({ message: "Token error, try again" });
             }
             next();
         })
